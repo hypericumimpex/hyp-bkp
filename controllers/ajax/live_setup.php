@@ -29,7 +29,7 @@ if ( '' == pb_backupbuddy::_POST( 'live_username' ) || '' == pb_backupbuddy::_PO
 	$errors[] = 'You must enter your iThemes username & password to log in to BackupBuddy Stash Live.';
 } else { // Username and password provided.
 
-	require_once( pb_backupbuddy::plugin_path() . '/lib/stash/stash-api.php' );
+	require_once pb_backupbuddy::plugin_path() . '/lib/stash/stash-api.php';
 	require_once pb_backupbuddy::plugin_path() . '/destinations/stash2/class.itx_helper2.php';
 	require_once pb_backupbuddy::plugin_path() . '/destinations/stash2/init.php';
 	require_once pb_backupbuddy::plugin_path() . '/destinations/live/init.php';

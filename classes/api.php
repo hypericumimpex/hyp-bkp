@@ -109,6 +109,18 @@ class backupbuddy_api {
 		return require( dirname(__FILE__) . '/api/_getBackupStatus.php' );
 	}
 
+	/**
+	 * Adds a new backup profile
+	 *
+	 * @param string $title  The Backup Profile title
+	 * @param string $type  The Backup Profile Type
+	 *
+	 * @return bool
+	 */
+	public static function addProfile( $title, $type ) {
+		self::_before();
+		return require dirname( __FILE__ ) . '/api/_addProfile.php';
+	}
 
 	/**
 	 * Adds a new schedule for backing up.

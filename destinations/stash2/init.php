@@ -162,11 +162,6 @@ class pb_backupbuddy_destination_stash2 { // Change class name end to match dest
 	public static function stashAPI( $settings, $action, $additionalParams = array(), $blocking = true, $passthru_errors = false ) {
 		require_once( pb_backupbuddy::plugin_path() . '/lib/stash/stash-api.php' );
 
-		$settings = array(
-			'username' => $settings['itxapi_username'],
-			'token'    => $settings['itxapi_token'],
-		);
-
 		return BackupBuddy_Stash_API::request( $action, $settings, $additionalParams, $blocking, $passthru_errors );
 	} // End stashAPI().
 

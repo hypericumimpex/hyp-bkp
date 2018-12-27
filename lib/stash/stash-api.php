@@ -79,6 +79,12 @@ final class BackupBuddy_Stash_API {
 		return self::request( 'connect', $settings );
 	}
 
+	public static function disconnect( $username, $token, $password ) {
+		$settings = compact( 'username', 'token', 'password' );
+
+		return self::request( 'disconnect', $settings );
+	}
+
 	public static function request( $action, $settings, $params = array(), $blocking = true, $passthru_errors = false, $timeout = 60 ) {
 		require_once( dirname( __FILE__ ) . '/http-request.php' );
 
@@ -94,9 +100,18 @@ final class BackupBuddy_Stash_API {
 		$http->set_blocking( $blocking );
 
 
+		if ( isset( $settings['itxapi_username'] ) ) {
+			$username = $settings['itxapi_username'];
+		} else if ( isset( $settings['username'] ) ) {
+			$username = $settings['username'];
+		} else {
+			$username = '';
+		}
+
+
 		$get_vars = array(
 			'action'    => $action,
-			'user'      => $settings['username'],
+			'user'      => $username,
 			'wp'        => $GLOBALS['wp_version'],
 			'bb'        => pb_backupbuddy::settings( 'version' ),
 			'site'      => str_replace( 'www.', '', site_url() ),
@@ -108,10 +123,15 @@ final class BackupBuddy_Stash_API {
 
 		$default_params = array();
 
-		if ( isset( $settings['password' ] ) ) { // Used on initital connection to
-			$default_params['auth_token'] = $settings['password']; // password is a HASH of user's password.
+		if ( isset( $settings['itxapi_password'] ) ) {
+			$default_params['auth_token'] = $settings['itxapi_password'];
+		} else if ( isset( $settings['password' ] ) ) {
+			$default_params['auth_token'] = $settings['password'];
 		}
-		if ( isset( $settings['token'] ) ) {
+
+		if ( isset( $settings['itxapi_token'] ) ) {
+			$default_params['token'] = $settings['itxapi_token'];
+		} else if ( isset( $settings['token'] ) ) {
 			$default_params['token'] = $settings['token'];
 		}
 

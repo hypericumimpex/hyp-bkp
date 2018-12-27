@@ -1958,3 +1958,7 @@
 	Bug Fix: Increased timeouts for Stash to fix some reported issues of requests timing out.
 	Bug Fix: Fixed issue that could cause failure to sign into Stash Live.
 	Bug Fix: Fixed source of the following warning: "Undefined index: finish_time in backupbuddy/classes/housekeeping.php on line 392".
+8.3.3.1 - 2018-12-12 - Chris Jean, Joshua Benham
+	Bug Fix: Fixed error that prevents users from disconnecting from Stash Live when no Stash remote destinations are active.
+8.3.4.0 - 2018-12-18 - Glenn Ansley
+	Enhancement: Added new Sync Verb addProfile allows for backup profile to be added via API.

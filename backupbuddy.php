@@ -3,7 +3,7 @@
  * Plugin Name: HYP BKP
  * Plugin URI: https://github.com/hypericumimpex/hyp-bkp
  * Description: Backup, Restoration, Migration, and Deployment to the same host or a new domain. Backs up a customizable selection of files, settings, and content for a complete snapshot of your site. Stash Live feature allows for real-time live backups to the cloud.
- * Version: 8.3.3.0
+ * Version: 8.3.4.0
  * Author: iThemes
  * Author URI: https://github.com/hypericumimpex/
  * iThemes Package: backupbuddy
